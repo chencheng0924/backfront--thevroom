@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky top-0">
+  <div class="sticky">
     <div class="w-full h-[100px] flex justify-evenly items-center bg-black">
         <div class="w-1/3 flex"><img class="w-[200px] h-[200px] object-contain" src="../assets/small_logowhite.png" alt="圖壞了"></div>
         <div class="w-1/3 flex justify-center text-white text-3xl">後台管理系統</div>

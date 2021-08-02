@@ -75,7 +75,7 @@ export default {
     },
     data() {
         return {
-            component: 'member'
+            component: 'car-data'
         }
     },
 }
