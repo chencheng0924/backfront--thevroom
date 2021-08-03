@@ -6,7 +6,7 @@
             <dialoggo :show="dialogs">
                 <div class="flex flex-col w-full justify-around">
                     <div class="w-full mb-5">
-                      <div class="text-2xl text-black text-center">新增車輛</div>
+                      <div class="text-2xl text-black text-center">---新增車輛---</div>
                     </div>
                     <div class="flex justify-between">
                       <uploadimage class="mr-3" />
@@ -18,25 +18,25 @@
         <div class="flex flex-col items-center">
             <div class="w-11/12 flex flex-col justify-center">
                 <div class="flex text-xl w-full justify-around items-center mb-3">
-                    <div>車輛ID</div>
-                    <div>車廠</div>
-                    <div>車系</div>
-                    <div>車款</div>
-                    <div>年份</div>
-                    <div>價格</div>
-                    <div>是否啟用</div>
-                    <div>編輯</div>
+                    <div class="w-[100px]">車輛ID</div>
+                    <div class="w-[100px]">車廠</div>
+                    <div class="w-[100px]">車系</div>
+                    <div class="w-[100px]">車款</div>
+                    <div class="w-[100px]">年份</div>
+                    <div class="w-[100px]">價格</div>
+                    <div class="w-[100px]">是否啟用</div>
+                    <div class="w-[100px]"><button>編輯</button></div>
                 </div>
                 <div class="bg-black h-[2px]"></div>
                 <div class="w-full flex text-lg justify-around items-center my-5" v-for="newcar in cars" :key="newcar.car">
-                    <div>{{newcar.car}}</div>
-                    <div>{{newcar.carbrand}}</div>
-                    <div>{{newcar.cartype}}</div>
-                    <div>{{newcar.carname}}</div>
-                    <div>{{newcar.year}}</div>
-                    <div>{{newcar.price}}</div>
-                    <div>未啟用</div>
-                    <div><button class="px-2 py-3 rounded-lg bg-black text-white">編輯</button></div>
+                    <div class="w-[100px]">{{newcar.car}}</div>
+                    <div class="w-[100px]">{{newcar.carbrand}}</div>
+                    <div class="w-[100px]">{{newcar.cartype}}</div>
+                    <div class="w-[100px]">{{newcar.carname}}</div>
+                    <div class="w-[100px]">{{newcar.year}}</div>
+                    <div class="w-[100px]">{{newcar.price}}</div>
+                    <div class="w-[100px]">未啟用</div>
+                    <div class="w-[100px]"><button @click="gogo" class="px-2 py-3 rounded-lg bg-black text-white">編輯</button></div>
                 </div>
             </div>
             <div></div>
