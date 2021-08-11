@@ -24,7 +24,6 @@
                     <div>商品資訊</div>
                     <div>價格</div>
                     <div>是否啟用</div>
-                    <div>編輯</div>
                 </div>
                 <div class="bg-black h-[2px]"></div>
                 <div class="w-full flex text-lg justify-around items-center my-5" v-for="accessory in accessorys" :key="accessory.product">
@@ -33,7 +32,7 @@
                     <div>{{accessory.name}}</div>
                     <div>{{accessory.info}}</div>
                     <div>{{accessory.price}}</div>
-                    <div style="border: 1px solid #000" class="p-2">{{ accessory.state }}</div>
+                    <!-- <div style="border: 1px solid #000" class="p-2">{{ accessory.state }}</div> -->
                     <div><button class="px-2 py-3 rounded-lg bg-black text-white">編輯</button></div>
                 </div>
             </div>
@@ -54,9 +53,9 @@ export default {
         return {
             dialogs: false,
             accessorys:[
-                {product:'001',type:'車用',name:'輪胎',info:'1.aaaaaa',price:'1980000',state: '已隱藏'},
-                {product:'002',type:'清潔',name:'雨刷',info:'1.aaaaaa',price:'1980000',state: '已隱藏'},
-                {product:'003',type:'電子',name:'行車紀錄器',info:'1.aaaaaa',price:'1980000',state: '已隱藏'},
+                {product:'001',type:'車用',name:'輪胎',info:'1.aaaaaa',price:'1980000'},
+                {product:'002',type:'清潔',name:'雨刷',info:'1.aaaaaa',price:'1980000'},
+                {product:'003',type:'電子',name:'行車紀錄器',info:'1.aaaaaa',price:'1980000'},
             ]
         }
     },

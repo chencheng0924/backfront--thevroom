@@ -9,7 +9,7 @@
                       <div class="text-2xl text-black text-center">---新增車輛---</div>
                     </div>
                     <div class="flex justify-between">
-                      <uploadimage class="mr-3" />
+                      <!-- <uploadimage @photofile="addphoto" class="mr-3" /> -->
                       <dialig-car-date @gogoro='close'/>
                     </div>
                 </div>
@@ -20,23 +20,19 @@
                 <div class="flex text-xl w-full justify-around items-center mb-3">
                     <div class="w-[100px]">車輛ID</div>
                     <div class="w-[100px]">車廠</div>
-                    <div class="w-[100px]">車系</div>
                     <div class="w-[100px]">車款</div>
-                    <div class="w-[100px]">年份</div>
                     <div class="w-[100px]">價格</div>
-                    <div class="w-[100px]">是否啟用</div>
                     <div class="w-[100px]"><button>編輯</button></div>
                 </div>
                 <div class="bg-black h-[2px]"></div>
-                <div class="w-full flex text-lg justify-around items-center my-5" v-for="newcar in cars" :key="newcar.car">
-                    <div class="w-[100px]">{{newcar.car}}</div>
-                    <div class="w-[100px]">{{newcar.carbrand}}</div>
-                    <div class="w-[100px]">{{newcar.cartype}}</div>
-                    <div class="w-[100px]">{{newcar.carname}}</div>
-                    <div class="w-[100px]">{{newcar.year}}</div>
-                    <div class="w-[100px]">{{newcar.price}}</div>
-                    <div class="w-[100px]">未啟用</div>
-                    <div class="w-[100px]"><button @click="gogo" class="px-2 py-3 rounded-lg bg-black text-white">編輯</button></div>
+                <div class="mt-3 w-full h-[650px] flex flex-col overflow-auto">
+                    <div class="w-full flex text-lg justify-around items-center mb-10" v-for="item in cars" :key="item">
+                        <div class="w-[100px]">{{item[0]}}</div>
+                        <div class="w-[100px]">{{item[1]}}</div>
+                        <div class="w-[100px]">{{item[2]}}</div>
+                        <div class="w-[100px]">{{item[14]}}</div>
+                        <div class="w-[100px]"><buttons class="px-2 py-3 rounded-lg bg-black text-white">編輯</buttons></div>
+                    </div>
                 </div>
             </div>
             <div></div>
@@ -45,21 +41,33 @@
 </template>
 
 <script>
-import uploadimage from './uploadimage.vue'
+// import uploadimage from './uploadimage.vue'
 import DialigCarDate from './dialog/DialogCarDate.vue'
 export default {
     components:{
-        uploadimage,
+        // uploadimage,
         DialigCarDate
+    },
+    async created () {
+        const res = await fetch('http://localhost:8080/thevroom-php/SelectCardata.php');
+        const resdata = await res.json();
+        console.log(res);
+        console.log(resdata);
+        this.cars = resdata
+        // this.cars = resdata.concat(this.new)
+        console.log(this.cars);
     },
     data() {
         return {
             dialogs: false,
-            cars:[
-                {car:'001',carbrand:'BMW',cartype:'2',carname:'220i',year:'2020',price:'1980000'},
-                {car:'002',carbrand:'BMW',cartype:'2',carname:'220i',year:'2020',price:'1980000'},
-                {car:'003',carbrand:'BMW',cartype:'2',carname:'220i',year:'2020',price:'1980000'},
-            ]
+            // cars:[
+            //     {car:'001',carbrand:'BMW',carname:'220i',price:'1980000'},
+            //     {car:'002',carbrand:'BMW',carname:'220i',price:'1980000'},
+            //     {car:'003',carbrand:'BMW',carname:'220i',price:'1980000'},
+            // ]
+            cars: [],
+            test: [],
+            new: []
         }
     },
     methods:{

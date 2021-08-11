@@ -64,6 +64,8 @@ export default {
       console.log(input.files)
       console.log(reader)
       console.log(this.preview_list.length)
+      const photo = event.target.files
+      this.$emit('photofile', photo)
       // input.files==> 所有 <input> 元素節點的 DOM 物件都擁有 files 屬性（property），此屬性即為 FileList，是一個可藉此存取使用者選取之檔案的類陣列物件。
     },
     reset: function () {
