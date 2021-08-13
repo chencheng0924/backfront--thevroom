@@ -9,7 +9,7 @@
                       <div class="text-2xl text-white text-center">新增配件</div>
                     </div>
                     <div class="flex justify-between">
-                      <uploadimage class="mr-3" />
+                      <!-- <uploadimage class="mr-3" /> -->
                       <dialog-accessory @gogoro='close'/>
                     </div>
                 </div>
@@ -17,23 +17,22 @@
         </div>
         <div class="flex flex-col items-center">
             <div class="w-11/12 flex flex-col justify-center">
-                <div class="flex text-xl w-full justify-around items-center mb-3">
+                <div class="flex text-xl w-full justify-around items-center mb-3" style="border: 1px solid black">
                     <div>商品ID</div>
                     <div>種類</div>
                     <div>商品名稱</div>
-                    <div>商品資訊</div>
                     <div>價格</div>
                     <div>是否啟用</div>
                 </div>
                 <div class="bg-black h-[2px]"></div>
-                <div class="w-full flex text-lg justify-around items-center my-5" v-for="accessory in accessorys" :key="accessory.product">
-                    <div>{{accessory.product}}</div>
-                    <div>{{accessory.type}}</div>
-                    <div>{{accessory.name}}</div>
-                    <div>{{accessory.info}}</div>
-                    <div>{{accessory.price}}</div>
-                    <!-- <div style="border: 1px solid #000" class="p-2">{{ accessory.state }}</div> -->
-                    <div><button class="px-2 py-3 rounded-lg bg-black text-white">編輯</button></div>
+                <div class="mt-3 w-full h-[650px] flex flex-col overflow-auto" style="border: 1px solid black">
+                    <div class="w-full flex text-lg justify-around items-center mb-8" v-for="accessory in accessorys" :key="accessory" style="border: 1px solid black">
+                        <div>{{accessory[0]}}</div>
+                        <div>{{accessory[1]}}</div>
+                        <div>{{accessory[2]}}</div>
+                        <div>{{accessory[3]}}</div>
+                        <button class="btn w-[80px] h-[40px] bg-red-600 text-white rounded-xl" @click="toggle(accessory[0], $event)" :class="{change : arr.includes(accessory[0], $event)}">OFF</button>
+                    </div>
                 </div>
             </div>
             <div></div>
@@ -42,21 +41,31 @@
 </template>
 
 <script>
-import uploadimage from './uploadimage.vue'
+// import uploadimage from './uploadimage.vue'
 import DialogAccessory from './dialog/DialogAccessory.vue'
 export default {
     components:{
-        uploadimage,
         DialogAccessory
+    },
+    async created () {
+        const res = await fetch('http://localhost:8080/thevroom-php/SelectAccessory.php');
+        const resdata = await res.json();
+        console.log(res);
+        console.log(resdata);
+        this.accessorys = resdata
+        // this.cars = resdata.concat(this.new)
+        console.log(this.accessorys);
     },
     data() {
         return {
             dialogs: false,
-            accessorys:[
-                {product:'001',type:'車用',name:'輪胎',info:'1.aaaaaa',price:'1980000'},
-                {product:'002',type:'清潔',name:'雨刷',info:'1.aaaaaa',price:'1980000'},
-                {product:'003',type:'電子',name:'行車紀錄器',info:'1.aaaaaa',price:'1980000'},
-            ]
+            // accessorys:[
+            //     {product:'001',type:'車用',name:'輪胎',price:'1980000'},
+            //     {product:'002',type:'清潔',name:'雨刷',price:'1980000'},
+            //     {product:'003',type:'電子',name:'行車紀錄器',price:'1980000'},
+            // ],
+            accessorys: [],
+            arr: []
         }
     },
     methods:{
@@ -65,7 +74,25 @@ export default {
         },
         close(){
             this.dialogs = false
+        },
+        toggle(id, e){
+            if(this.arr.includes(id)){
+                console.log(this.arr.indexOf(id))
+                const index = this.arr.indexOf(id)
+                this.arr.splice(index, 1)
+                e.target.innerText = 'OFF'
+            } else {
+                console.log(this.arr);
+                this.arr.push(id)
+                e.target.innerText = 'ON'
+            }
         }
     }
 }
 </script>
+
+<style scoped>
+.change{
+    background-color: #10B981;
+}
+</style>
