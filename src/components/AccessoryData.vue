@@ -17,21 +17,23 @@
         </div>
         <div class="flex flex-col items-center">
             <div class="w-11/12 flex flex-col justify-center">
-                <div class="flex text-xl w-full justify-around items-center mb-3" style="border: 1px solid black">
-                    <div>商品ID</div>
-                    <div>種類</div>
-                    <div>商品名稱</div>
-                    <div>價格</div>
-                    <div>是否啟用</div>
+                <div class="flex text-xl w-full justify-around items-center mb-3">
+                    <div class="w-11/12 flex justify-center">商品ID</div>
+                    <div class="w-11/12 flex justify-center">種類</div>
+                    <div class="w-11/12 flex justify-center">商品名稱</div>
+                    <div class="w-11/12 flex justify-center">價格</div>
+                    <div class="w-11/12 flex justify-center">是否啟用</div>
                 </div>
                 <div class="bg-black h-[2px]"></div>
-                <div class="mt-3 w-full h-[650px] flex flex-col overflow-auto" style="border: 1px solid black">
-                    <div class="w-full flex text-lg justify-around items-center mb-8" v-for="accessory in accessorys" :key="accessory" style="border: 1px solid black">
-                        <div>{{accessory[0]}}</div>
-                        <div>{{accessory[1]}}</div>
-                        <div>{{accessory[2]}}</div>
-                        <div>{{accessory[3]}}</div>
-                        <button class="btn w-[80px] h-[40px] bg-red-600 text-white rounded-xl" @click="toggle(accessory[0], $event)" :class="{change : arr.includes(accessory[0], $event)}">OFF</button>
+                <div class="mt-3 w-full h-[650px] flex flex-col overflow-auto">
+                    <div class="w-full flex text-lg justify-around items-center mb-8" v-for="accessory in accessorys" :key="accessory">
+                        <div class="w-11/12 h-full flex justify-center">{{accessory[0]}}</div>
+                        <div class="w-11/12 h-full flex justify-center">{{accessory[1]}}</div>
+                        <div class="w-11/12 h-full flex justify-center">{{accessory[2]}}</div>
+                        <div class="w-11/12 h-full flex justify-center">{{accessory[3]}}</div>
+                        <div class="w-11/12 h-full flex justify-center">
+                            <button class="btn w-[80px] h-[40px] bg-red-600 text-white rounded-xl" @click="toggle(accessory[0], $event)" :class="{change : arr.includes(accessory[0], $event)}">OFF</button>
+                        </div>
                     </div>
                 </div>
             </div>

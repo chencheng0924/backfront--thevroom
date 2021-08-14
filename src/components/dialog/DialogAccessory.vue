@@ -67,13 +67,13 @@ export default {
     data() {
         return {
             close: false,
-            insertphoto: []
+            accphoto: []
         }
     },
     methods:{
         addphoto(val) {
-            this.insertphoto = val
-            console.log(this.insertphoto)
+            this.accphoto = val
+            console.log(this.accphoto)
         },
         gogoro2(){
             this.$emit('gogoro', this.close)
@@ -84,14 +84,14 @@ export default {
             console.log(this.productname);
             console.log(this.productprice);
             console.log(this.productinfo);
-            // console.log(this.insertphoto);
+            console.log(this.accphoto);
             const formdata = new FormData();
             // formdata.append('PRODUCTID', this.productid);
             formdata.append('SORT', this.productsort);
             formdata.append('PRODUCTNAME', this.productname);
             formdata.append('PRODUCTPRICE', this.productprice);
             formdata.append('PRODUCTINFO', this.productinfo);
-            formdata.append('PRODUCTIMG', this.insertphoto);
+            formdata.append('PRODUCTIMG', this.accphoto);
             fetch('http://localhost:8080/thevroom-php/InsertAccessorydata.php', {
                 method: 'POST',
                 body: formdata

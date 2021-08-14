@@ -18,20 +18,20 @@
         <div class="flex flex-col items-center">
             <div class="w-11/12 flex flex-col justify-center">
                 <div class="flex text-xl w-full justify-around items-center mb-3">
-                    <div class="w-[100px]">車輛ID</div>
-                    <div class="w-[100px]">車廠</div>
-                    <div class="w-[100px]">車款</div>
-                    <div class="w-[100px]">價格</div>
-                    <div class="w-[100px]"><button>編輯</button></div>
+                    <div class="w-11/12 flex justify-center">車輛ID</div>
+                    <div class="w-11/12 flex justify-center">車廠</div>
+                    <div class="w-11/12 flex justify-center">車款</div>
+                    <div class="w-11/12 flex justify-center">價格</div>
+                    <div class="w-11/12 flex justify-center"><button>編輯</button></div>
                 </div>
                 <div class="bg-black h-[2px]"></div>
                 <div class="mt-3 w-full h-[650px] flex flex-col overflow-auto">
                     <div class="w-full flex text-lg justify-around items-center mb-10" v-for="item in cars" :key="item">
-                        <div class="w-[100px]">{{item[0]}}</div>
-                        <div class="w-[100px]">{{item[1]}}</div>
-                        <div class="w-[100px]">{{item[2]}}</div>
-                        <div class="w-[100px]">{{item[14]}}</div>
-                        <div class="w-[100px]"><buttons class="px-2 py-3 rounded-lg bg-black text-white">編輯</buttons></div>
+                        <div class="w-11/12 flex justify-center">{{item[0]}}</div>
+                        <div class="w-11/12 flex justify-center">{{item[1]}}</div>
+                        <div class="w-11/12 flex justify-center">{{item[2]}}</div>
+                        <div class="w-11/12 flex justify-center">{{item[14]}}</div>
+                        <div class="w-11/12 flex justify-center"><buttons class="px-2 py-3 rounded-lg bg-black text-white">編輯</buttons></div>
                     </div>
                 </div>
             </div>
