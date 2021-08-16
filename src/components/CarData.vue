@@ -49,7 +49,7 @@ export default {
         DialigCarDate
     },
     async created () {
-        const res = await fetch('http://localhost:8080/thevroom-php/SelectCardata.php');
+        const res = await fetch('http://localhost:8080/phpfile/SelectCardata.php');
         const resdata = await res.json();
         console.log(res);
         console.log(resdata);
