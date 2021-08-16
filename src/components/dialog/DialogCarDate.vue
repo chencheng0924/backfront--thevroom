@@ -146,7 +146,7 @@ export default {
             formdata.append('ENERGY', this.carenergy);
             formdata.append('RATES', this.carrates);
             formdata.append('CARTYPEPHOTO', this.insertphoto[0])
-            fetch('http://localhost:8080/thevroom-php/InsertCardata.php', {
+            fetch('http://localhost:8080/phpfile/InsertCardata.php', {
                 method: 'POST',
                 body: formdata
             })

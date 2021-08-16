@@ -50,7 +50,7 @@ export default {
         DialogAccessory
     },
     async created () {
-        const res = await fetch('http://localhost:8080/thevroom-php/SelectAccessory.php');
+        const res = await fetch('http://localhost:8080/phpfile/SelectAccessory.php');
         const resdata = await res.json();
         console.log(res);
         console.log(resdata);

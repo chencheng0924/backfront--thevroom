@@ -79,20 +79,18 @@ export default {
             this.$emit('gogoro', this.close)
         },
         addbtn(){
-            // console.log(this.productid);
             console.log(this.productsort);
             console.log(this.productname);
             console.log(this.productprice);
             console.log(this.productinfo);
             console.log(this.accphoto);
             const formdata = new FormData();
-            // formdata.append('PRODUCTID', this.productid);
             formdata.append('SORT', this.productsort);
             formdata.append('PRODUCTNAME', this.productname);
             formdata.append('PRODUCTPRICE', this.productprice);
             formdata.append('PRODUCTINFO', this.productinfo);
             formdata.append('PRODUCTIMG', this.accphoto);
-            fetch('http://localhost:8080/thevroom-php/InsertAccessorydata.php', {
+            fetch('http://localhost:8080/phpfile/InsertAccessorydata.php', {
                 method: 'POST',
                 body: formdata
             })
