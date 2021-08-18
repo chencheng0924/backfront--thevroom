@@ -16,25 +16,23 @@
         <div class="flex flex-col items-center">
             <div class="w-11/12 flex flex-col justify-center">
                 <div class="flex text-xl w-full justify-around items-center mb-3">
-                    <div>文章編號</div>
-                    <div>發文者會員ID</div>
-                    <div>發文日期</div>
-                    <div>主題類別</div>
-                    <div>主題名稱</div>
-                    <div>檢舉原因</div>
-                    <div>狀態</div>
-                    <div>編輯</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">文章編號</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">留言ID</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">留言日期</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">留言內容</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">檢舉原因</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">狀態</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">編輯</div>
                 </div>
                 <div class="bg-black h-[2px]"></div>
-                <div class="w-full flex text-lg justify-around items-center my-5" v-for="forum in forums" :key="forum.article">
-                    <div>{{forum.article}}</div>
-                    <div>{{forum.user}}</div>
-                    <div>{{forum.date}}</div>
-                    <div>{{forum.type}}</div>
-                    <div>{{forum.name}}</div>
-                    <div>{{forum.reason}}</div>
-                    <div style="border: 1px solid #000" class="p-2">{{ forum.state }}</div>
-                    <div><button @click="gogo" class="px-2 py-3 rounded-lg bg-black text-white">檢視</button></div>
+                <div class="w-full flex text-lg justify-around items-center my-5" v-for="list in reports" :key="list">
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">{{list[2]}}</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">{{list[0]}}</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">{{list[5]}}</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">{{list[4]}}</div>
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red">{{list[11]}}</div>
+                    <!-- <div class="w-11/12 flex justify-center" style="border: 1px solid red">{{list[]}}</div> -->
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid red"><button @click="gogo" class="w-[80px] h-[40px] rounded-lg bg-black text-white">檢視</button></div>
                 </div>
             </div>
             <div></div>
@@ -48,14 +46,19 @@ export default {
     components:{
         DialogMember
     },
+    async created () {
+        const res = await fetch('http://localhost:8080/backfront-php/test.php');
+        const resdata = await res.json();
+        console.log(res);
+        console.log(resdata);
+        this.reports = resdata;
+        console.log(this.reports);
+    },
     data() {
         return {
             dialogs: false,
-            forums:[
-                {article:'001',user:'Shen',date:'2021/04/21',type:'0',name:'新手如何挑車',reason:'性騷擾',state: '已隱藏'},
-                {article:'002',user:'Chen',date:'2021/04/21',type:'1',name:'新手如何挑車',reason:'性騷擾',state: '未處理'},
-                {article:'003',user:'Fred',date:'2021/04/21',type:'0',name:'新手如何挑車',reason:'性騷擾',state: '已隱藏'},
-            ]
+            // massagecontent: '',
+            reports: []
         }
     },
     methods:{

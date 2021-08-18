@@ -19,6 +19,7 @@
             <div class="w-11/12 flex flex-col justify-center">
                 <div class="flex text-xl w-full justify-around items-center mb-3">
                     <div class="w-11/12 flex justify-center">商品ID</div>
+                    <div class="w-11/12 flex justify-center">項目</div>
                     <div class="w-11/12 flex justify-center">種類</div>
                     <div class="w-11/12 flex justify-center">商品名稱</div>
                     <div class="w-11/12 flex justify-center">價格</div>
@@ -31,6 +32,7 @@
                         <div class="w-11/12 h-full flex justify-center">{{accessory[1]}}</div>
                         <div class="w-11/12 h-full flex justify-center">{{accessory[2]}}</div>
                         <div class="w-11/12 h-full flex justify-center">{{accessory[3]}}</div>
+                        <div class="w-11/12 h-full flex justify-center">{{accessory[4]}}</div>
                         <div class="w-11/12 h-full flex justify-center">
                             <button class="btn w-[80px] h-[40px] bg-red-600 text-white rounded-xl" @click="toggle(accessory[0], $event)" :class="{change : arr.includes(accessory[0], $event)}">OFF</button>
                         </div>
@@ -50,7 +52,7 @@ export default {
         DialogAccessory
     },
     async created () {
-        const res = await fetch('http://localhost:8080/phpfile/SelectAccessory.php');
+        const res = await fetch('http://localhost:8080/backfront-php/SelectAccessory.php');
         const resdata = await res.json();
         console.log(res);
         console.log(resdata);

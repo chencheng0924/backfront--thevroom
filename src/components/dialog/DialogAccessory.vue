@@ -11,7 +11,18 @@
                         商品ID : 
                         <input type="text" class="border-black border rounded-md" v-model="productid">
                     </div> -->
-                    <div class="w-1/2">
+                    <div class="w-1/3">
+                        商品項目 :  
+                        <!-- <input type="text" class="border-black border rounded-md"> -->
+                        <select name="kind" class="border-black border rounded-md w-[200px] h-[30px]" style="cursor: pointer" v-model="productbigsort">
+                            <option value="雨刷">雨刷</option>
+                            <option value="各類燈款">各類燈款</option>
+                            <option value="音響">音響</option>
+                            <option value="救車/哇電/警告標示">救車/哇電/警告標示</option>
+                            <option value="胎壓偵測器">胎壓偵測器</option>
+                        </select>
+                    </div>
+                    <div class="w-1/3">
                         商品種類 :  
                         <!-- <input type="text" class="border-black border rounded-md"> -->
                         <select name="kind" class="border-black border rounded-md w-[200px] h-[30px]" style="cursor: pointer" v-model="productsort">
@@ -79,18 +90,22 @@ export default {
             this.$emit('gogoro', this.close)
         },
         addbtn(){
+            // console.log(this.productid);
+            console.log(this.productbigsort);
             console.log(this.productsort);
             console.log(this.productname);
             console.log(this.productprice);
             console.log(this.productinfo);
             console.log(this.accphoto);
             const formdata = new FormData();
+            // formdata.append('PRODUCTID', this.productid);
+            formdata.append('BIGSORT', this.productbigsort);
             formdata.append('SORT', this.productsort);
             formdata.append('PRODUCTNAME', this.productname);
             formdata.append('PRODUCTPRICE', this.productprice);
             formdata.append('PRODUCTINFO', this.productinfo);
             formdata.append('PRODUCTIMG', this.accphoto);
-            fetch('http://localhost:8080/phpfile/InsertAccessorydata.php', {
+            fetch('http://localhost:8080/backfront-php/InsertAccessorydata.php', {
                 method: 'POST',
                 body: formdata
             })
