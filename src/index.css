@@ -558,7 +558,7 @@ embed,
 object {
   display: block;
   /* 1 */
-  /* vertical-align: middle; */
+  vertical-align: middle;
   /* 2 */
 }
 
@@ -778,6 +778,14 @@ video {
 
 .w-\[720px\] {
   width: 720px;
+}
+
+.w-6\/12 {
+  width: 50%;
+}
+
+.w-9\/12 {
+  width: 75%;
 }
 
 .max-w-\[470px\] {
