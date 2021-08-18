@@ -90,7 +90,7 @@ export default {
             formdata.append('PRODUCTPRICE', this.productprice);
             formdata.append('PRODUCTINFO', this.productinfo);
             formdata.append('PRODUCTIMG', this.accphoto);
-            fetch('http://localhost:8080/phpfile/InsertAccessorydata.php', {
+            fetch('http://localhost:8080/backfront-php/InsertAccessorydata.php', {
                 method: 'POST',
                 body: formdata
             })

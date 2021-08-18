@@ -67,7 +67,7 @@ export default {
   async created () {
         const fd = new FormData()
         fd.append('artid', this.artid)
-        const res = await fetch('http://localhost:8080/phpfile/SelectDiologArticle.php', {
+        const res = await fetch('http://localhost:8080/backfront-php/SelectDiologArticle.php', {
           method: 'POST',
           body: fd
         });
