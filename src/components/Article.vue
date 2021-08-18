@@ -56,7 +56,7 @@ export default {
         DialogArticle
     },
     async created () {
-        const res = await fetch('http://localhost:8080/phpfile/SelectArticle.php')
+        const res = await fetch('http://localhost:8080/backfront-php/SelectArticle.php')
         const resdata = await res.json()
         console.log(res)
         console.log(resdata)
