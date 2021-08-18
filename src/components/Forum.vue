@@ -26,11 +26,11 @@
                 </div>
                 <div class="bg-black h-[2px]"></div>
                 <div class="w-full flex text-lg justify-around items-center my-5" v-for="forum in reply" :key="forum.article">
-                    <div style="border: 1px solid red" class="w-11/12 flex justify-center">{{forum[2]}}</div>
-                    <div style="border: 1px solid red" class="w-11/12 flex justify-center">{{forum[0]}}</div>
-                    <div style="border: 1px solid red" class="w-11/12 flex justify-left">{{forum[5]}}</div>
-                    <div style="border: 1px solid red" class="w-11/12 flex justify-center">{{forum[4]}}</div>
-                    <div style="border: 1px solid red" class="w-11/12 flex justify-center">{{forum[11]}}</div>
+                    <div class="w-11/12 flex justify-center">{{forum[2]}}</div>
+                    <div class="w-11/12 flex justify-center">{{forum[0]}}</div>
+                    <div class="w-11/12 flex justify-left">{{forum[5]}}</div>
+                    <div class="w-11/12 flex justify-center">{{forum[4]}}</div>
+                    <div class="w-11/12 flex justify-center">{{forum[11]}}</div>
                     <!-- <div style="border: 1px solid red" class="w-11/12 flex justify-center">{{forum[5]}}</div> -->
                     <!-- <div style="border: 1px solid #000" class="p-2">{{ forum.state }}</div> -->
                     <div class="w-11/12 flex justify-center">  <button class="btn w-[80px] h-[40px] bg-red-600 text-white rounded-xl" @click="toggle(forum[0], $event)" :class="{change: arr.includes(forum[0], $event)}">OFF</button></div>
