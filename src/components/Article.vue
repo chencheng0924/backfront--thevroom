@@ -113,7 +113,9 @@ export default {
                 console.log(this.arr.indexOf(id))
                 const index = this.arr.indexOf(id)
                 this.arr.splice(index, 1)
+
                 e.target.innerText = 'ON'
+
                 const formdata = new FormData();
                 formdata.append('ARTICLEID', this.artid);
                 fetch('http://localhost:8080/backfront-php/UpdateOn.php', {
@@ -125,7 +127,9 @@ export default {
                 console.log(this.artid)
                 console.log(this.arr);
                 this.arr.push(id)
+
                 e.target.innerText = 'OFF'
+                
                 const formdata = new FormData();
                 formdata.append('ARTICLEID', this.artid);
                 fetch('http://localhost:8080/backfront-php/UpdateOff.php', {
