@@ -30,7 +30,8 @@
                     <div class="w-11/12 flex justify-center">{{forum[0]}}</div>
                     <div class="w-11/12 flex justify-left">{{forum[5]}}</div>
                     <div class="w-11/12 flex justify-center">{{forum[4]}}</div>
-                    <div class="w-11/12 flex justify-center">{{forum[11]}}</div>
+                    <div class="w-12/12 flex justify-center">{{forum[11]}}</div>
+                    <div class="w-11/12 flex justify-center">{{forum[6]}}</div>
                     <!-- <div style="border: 1px solid red" class="w-11/12 flex justify-center">{{forum[5]}}</div> -->
                     <!-- <div style="border: 1px solid #000" class="p-2">{{ forum.state }}</div> -->
                     <div class="w-11/12 flex justify-center">  <button class="btn w-[80px] h-[40px] bg-red-600 text-white rounded-xl" @click="toggle(forum[0], $event)" :class="{change: arr.includes(forum[0], $event)}">OFF</button></div>
@@ -52,7 +53,7 @@ export default {
         const res = await fetch('http://localhost:8080/backfront-php/ReportReply.php')
         const resdata = await res.json()
         // console.log(res)
-        // console.log(resdata)
+        console.log(resdata)
         this.reply = resdata
         // this.forums = this.forums1.push(resdata)
         // console.log(this.reply)
