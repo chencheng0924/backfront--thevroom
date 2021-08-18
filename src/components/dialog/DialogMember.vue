@@ -3,25 +3,25 @@
     <div class="flex w-full justify-around text-lg mb-10">
         <div class="w-1/2">
             檢舉編號 : 
-            <input type="text" class="border-black border rounded-md" :value="one">
+            <input type="text" class="border-black border rounded-md" v-model="one">
         </div>
         <div class="w-1/2">
             姓名 :  
-            <input type="text" class="border-black border rounded-md" :value="two">
+            <input type="text" class="border-black border rounded-md" v-model="two">
         </div>
     </div>
 
     <div class="text-lg mb-10">
       <div>
         留言時間 :
-        <input type="text" class="border-black border rounded-md" :value="three">
+        <input type="text" class="border-black border rounded-md" v-model="three">
       </div>
     </div>
 
     <div class="text-lg mb-10">
       <div>
         留言內容 : 
-        <textarea cols="50" rows="5" class="border-black border rounded-md" placeholder="請輸入內容" :value="four"></textarea>
+        <textarea cols="50" rows="5" class="border-black border rounded-md" placeholder="請輸入內容" v-model="four"></textarea>
       </div>
     </div>
 
