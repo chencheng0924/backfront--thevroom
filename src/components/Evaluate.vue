@@ -16,6 +16,7 @@
         <div class="flex flex-col items-center">
             <div class="w-11/12 flex flex-col justify-center">
                 <div class="flex text-xl w-full justify-around items-center mb-3">
+                    <div class="w-11/12 flex justify-center" style="border: 1px solid #000">ID</div>
                     <div class="w-11/12 flex justify-center" style="border: 1px solid #000">車輛廠牌</div>
                     <div class="w-11/12 flex justify-center" style="border: 1px solid #000">出廠年份</div>
                     <div class="w-11/12 flex justify-center" style="border: 1px solid #000">里程數</div>
@@ -30,7 +31,8 @@
                     <div class="w-11/12 flex justify-center">{{forum[1]}}</div>
                     <div class="w-11/12 flex justify-center">{{forum[2]}}</div>
                     <div class="w-11/12 flex justify-center">{{forum[3]}}</div>
-                    <div class="w-11/12 flex justify-center" style="border:1px solid red;">{{forum[4]}}</div>
+                    <div class="w-11/12 flex justify-center">{{forum[4]}}</div>
+                    <div class="w-11/12 flex justify-center" style="border:1px solid red;">{{forum[5]}}</div>
                     <!-- <div class="w-11/12 flex justify-center">{{forum[6]}}</div> -->
                     <!-- <div style="border: 1px solid red" class="w-11/12 flex justify-center">{{forum[5]}}</div> -->
                     <!-- <div style="border: 1px solid #000" class="p-2">{{ forum.state }}</div> -->
@@ -64,14 +66,15 @@ export default {
             dialogs: false,
             reply:[],
             arr: [],
-            eva: []
+            eva: [],
+            eid:''
         }
     },
     methods:{
-        gogo(r){
+        gogo(e){
             this.dialogs = true
-            this.repid = r
-            console.log(this.repid)
+            this.eid = e
+            console.log(this.eid)
         },
         close(){
             this.dialogs = false
@@ -84,9 +87,17 @@ export default {
                 e.target.innerText = '未回覆'
             } else {
                 console.log(this.arr);
+                console.log(id);
+                this.eid = id;
                 this.arr.push(id)
                 e.target.innerText = '已回覆'
             }
+            const fdd = new FormData()
+            fdd.append('eid', this.eid)
+            fetch('http://localhost:8080/backfront-php/UpdateEvaluate.php', {
+                method: 'POST',
+                body: fdd
+            })
         }
     }
 }
