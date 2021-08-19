@@ -728,6 +728,14 @@ video {
   width: 150px;
 }
 
+.w-7\/12 {
+  width: 58.333333%;
+}
+
+.w-4\/12 {
+  width: 33.333333%;
+}
+
 .w-1\/5 {
   width: 20%;
 }
@@ -776,6 +784,14 @@ video {
   width: 720px;
 }
 
+.w-10\/12 {
+  width: 83.333333%;
+}
+
+.w-9\/12 {
+  width: 75%;
+}
+
 .max-w-\[470px\] {
   max-width: 470px;
 }
@@ -806,6 +822,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
