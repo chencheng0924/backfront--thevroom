@@ -67,7 +67,8 @@ export default {
             reply:[],
             arr: [],
             eva: [],
-            eid:''
+            eid:'',
+            status:''
         }
     },
     methods:{
@@ -81,6 +82,7 @@ export default {
         },
         toggle(id, e){
             if(this.arr.includes(id)){
+                this.eid = id;
                 console.log(this.arr.indexOf(id))
                 const index = this.arr.indexOf(id)
                 this.arr.splice(index, 1)
@@ -92,9 +94,13 @@ export default {
                 this.arr.push(id)
                 e.target.innerText = '已回覆'
             }
+            // e.target.innerText = this.status
+            console.log(e.target.innerText);
+            this.status = e.target.innerText
             const fdd = new FormData()
             fdd.append('eid', this.eid)
-            fetch('http://localhost:8080/backfront-php/UpdateEvaluate.php', {
+            fdd.append('status',this.status)
+            fetch('http://localhost:8080/backfront-php/hotest.php', {
                 method: 'POST',
                 body: fdd
             })
