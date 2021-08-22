@@ -32,7 +32,7 @@
                     <div class="flex w-11/12 justify-center flex-wrap">{{forum[2]}}</div>
                     <div class="flex w-11/12 justify-center flex-wrap">{{forum[3]}}</div>
                     <div class="flex w-11/12 justify-center flex-wrap">{{forum[4]}}</div>
-                    <div class="flex w-11/12 justify-center flex-wrap">{{forum[5]}}</div>
+                    <div class="flex w-11/12 flex-wrap truncate">{{forum[5]}}</div>
                     <!-- <div class="w-11/12 flex justify-center">{{forum[6]}}</div> -->
                     <!-- <div style="border: 1px solid red" class="w-11/12 flex justify-center">{{forum[5]}}</div> -->
                     <!-- <div style="border: 1px solid #000" class="p-2">{{ forum.state }}</div> -->
