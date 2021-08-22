@@ -31,9 +31,6 @@
                     <div class="w-11/12 flex justify-left">{{forum[5]}}</div>
                     <div class="w-11/12 flex justify-center">{{forum[4]}}</div>
                     <div class="w-11/12 flex justify-center">{{forum[7]}}</div>
-                    <!-- <div style="border:1px solid red" class="w-11/12 flex justify-center">{{forum[6]}}</div> -->
-                    <!-- <div style="border: 1px solid red" class="w-11/12 flex justify-center">{{forum[5]}}</div> -->
-                    <!-- <div style="border: 1px solid #000" class="p-2">{{ forum.state }}</div> -->
                     <div class="w-11/12 flex justify-center">  <button class="btn w-[80px] h-[40px] bg-green-500 text-white rounded-xl" @click="toggle(forum[0], $event)" :class="{change: arr.includes(forum[0], $event)}">{{arr.includes(forum[0]) ? 'OFF' : 'ON'}}</button></div>
                     <div class="w-11/12 flex justify-center"><button @click="gogo(forum[0])" class="px-2 py-3 rounded-lg bg-black text-white">檢視</button></div>
                 </div>
@@ -64,6 +61,12 @@ export default {
         checkone.forEach(item => {
             this.arr.push(item.FORUMREPLYID)
         })
+        // console.log(res)
+        console.log(resdata)
+        this.reply = resdata
+        // this.forums = this.forums1.push(resdata)
+        // console.log(this.reply)
+        // console.log(typeof this.reply);
     },
     data() {
         return {
