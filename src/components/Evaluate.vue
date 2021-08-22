@@ -26,13 +26,13 @@
                     <!-- <div class="w-11/12 flex justify-center" style="border: 1px solid #000">編輯</div> -->
                 </div>
                 <div class="bg-black h-[2px]"></div>
-                <div class="w-full flex text-lg justify-around items-center my-5" v-for="forum in eva" :key="forum">
-                    <div class="w-11/12 flex justify-center">{{forum[0]}}</div>
-                    <div class="w-11/12 flex justify-center">{{forum[1]}}</div>
-                    <div class="w-11/12 flex justify-center">{{forum[2]}}</div>
-                    <div class="w-11/12 flex justify-center">{{forum[3]}}</div>
-                    <div class="w-11/12 flex justify-center">{{forum[4]}}</div>
-                    <div class="w-11/12 flex justify-center" style="border:1px solid red;">{{forum[5]}}</div>
+                <div class="w-full flex text-lg justify-between items-center my-5" v-for="forum in eva" :key="forum">
+                    <div class="flex w-11/12 justify-center">{{forum[0]}}</div>
+                    <div class="flex w-11/12 justify-center flex-wrap">{{forum[1]}}</div>
+                    <div class="flex w-11/12 justify-center flex-wrap">{{forum[2]}}</div>
+                    <div class="flex w-11/12 justify-center flex-wrap">{{forum[3]}}</div>
+                    <div class="flex w-11/12 justify-center flex-wrap">{{forum[4]}}</div>
+                    <div class="flex w-11/12 justify-center flex-wrap">{{forum[5]}}</div>
                     <!-- <div class="w-11/12 flex justify-center">{{forum[6]}}</div> -->
                     <!-- <div style="border: 1px solid red" class="w-11/12 flex justify-center">{{forum[5]}}</div> -->
                     <!-- <div style="border: 1px solid #000" class="p-2">{{ forum.state }}</div> -->
@@ -87,23 +87,39 @@ export default {
                 const index = this.arr.indexOf(id)
                 this.arr.splice(index, 1)
                 e.target.innerText = '未回覆'
+                this.status = e.target.innerText
+                const fdd = new FormData()
+                fdd.append('eid', this.eid)
+                fdd.append('status',this.status)
+                fetch('http://localhost:8080/backfront-php/UpdateEvaluate.php', {
+                method: 'POST',
+                body: fdd
+            })
             } else {
                 console.log(this.arr);
                 console.log(id);
                 this.eid = id;
                 this.arr.push(id)
                 e.target.innerText = '已回覆'
+                this.status = e.target.innerText
+                const fdd = new FormData()
+                fdd.append('eid', this.eid)
+                fdd.append('status',this.status)
+                fetch('http://localhost:8080/backfront-php/hotest.php', {
+                method: 'POST',
+                body: fdd 
+            })
             }
             // e.target.innerText = this.status
-            console.log(e.target.innerText);
-            this.status = e.target.innerText
-            const fdd = new FormData()
-            fdd.append('eid', this.eid)
-            fdd.append('status',this.status)
-            fetch('http://localhost:8080/backfront-php/hotest.php', {
-                method: 'POST',
-                body: fdd
-            })
+            // console.log(e.target.innerText)
+            // this.status = e.target.innerText
+            // const fdd = new FormData()
+            // fdd.append('eid', this.eid)
+            // fdd.append('status',this.status)
+            // fetch('http://localhost:8080/backfront-php/hotest.php', {
+            //     method: 'POST',
+            //     body: fdd
+            // })
         }
     }
 }
