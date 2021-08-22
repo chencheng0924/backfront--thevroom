@@ -724,10 +724,6 @@ video {
   width: 100px;
 }
 
-.w-\[150px\] {
-  width: 150px;
-}
-
 .w-1\/5 {
   width: 20%;
 }
@@ -754,6 +750,10 @@ video {
 
 .w-1\/2 {
   width: 50%;
+}
+
+.w-\[150px\] {
+  width: 150px;
 }
 
 .w-\[95px\] {
@@ -872,11 +872,6 @@ video {
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-}
-
-.bg-red-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(220, 38, 38, var(--tw-bg-opacity));
 }
 
 .bg-green-500 {

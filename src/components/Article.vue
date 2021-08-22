@@ -18,13 +18,13 @@
         <div class="flex flex-col items-center">
             <div class="w-11/12 flex flex-col justify-center">
                 <div class="flex text-xl w-full justify-around items-center mb-3">
-                    <div class="w-11/12 flex justify-center" style="border: 1px solid #000">文章編號</div>
-                    <div class="w-11/12 flex justify-center" style="border: 1px solid #000">發文者會員ID</div>
-                    <div class="w-11/12 flex justify-center" style="border: 1px solid #000">發文日期</div>
-                    <div class="w-11/12 flex justify-center" style="border: 1px solid #000">主題類別</div>
-                    <div class="w-11/12 flex justify-center" style="border: 1px solid #000">主題名稱</div>
-                    <div class="w-11/12 flex justify-center" style="border: 1px solid #000">是否啟用</div>
-                    <div class="w-11/12 flex justify-center" style="border: 1px solid #000">編輯</div>
+                    <div class="w-11/12 flex justify-center">文章編號</div>
+                    <div class="w-11/12 flex justify-center">發文者會員ID</div>
+                    <div class="w-11/12 flex justify-center">發文日期</div>
+                    <div class="w-11/12 flex justify-center">主題類別</div>
+                    <div class="w-11/12 flex justify-center">主題名稱</div>
+                    <div class="w-11/12 flex justify-center">是否啟用</div>
+                    <div class="w-11/12 flex justify-center">編輯</div>
                 </div>
                 <div class="bg-black h-[2px]"></div>
                 <div class="mt-3 w-full h-[650px] flex flex-col overflow-auto">

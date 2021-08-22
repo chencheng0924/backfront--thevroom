@@ -34,7 +34,7 @@
                         <div class="w-11/12 h-full flex justify-center">{{accessory[3]}}</div>
                         <div class="w-11/12 h-full flex justify-center">{{accessory[4]}}</div>
                         <div class="w-11/12 h-full flex justify-center">
-                            <button class="btn w-[80px] h-[40px] bg-red-600 text-white rounded-xl" @click="toggle(accessory[0], $event)" :class="{change : arr.includes(accessory[0], $event)}">OFF</button>
+                            <button class="btn w-[80px] h-[40px] bg-green-500 text-white rounded-xl" @click="toggle(accessory[0], $event)" :class="{change : arr.includes(accessory[0], $event)}">{{arr.includes(accessory[0]) ? 'OFF' : 'ON'}}</button>
                         </div>
                     </div>
                 </div>
@@ -59,6 +59,19 @@ export default {
         this.accessorys = resdata
         // this.cars = resdata.concat(this.new)
         console.log(this.accessorys);
+
+        const testone = await fetch('http://localhost:8080/backfront-php/SelectAccOne.php')
+        const checkone = await testone.json()
+        console.log(testone);
+        console.log(checkone);
+        console.log(this.arr);
+        // console.log(checkone[0].ARTICLEID)
+        // const abc = checkone[0].ARTICLEID
+        // console.log(abc);
+        checkone.forEach(list => {
+            this.arr.push(list.PRODUCTID)
+            console.log(list);
+        })
     },
     data() {
         return {
@@ -69,7 +82,8 @@ export default {
             //     {product:'003',type:'電子',name:'行車紀錄器',price:'1980000'},
             // ],
             accessorys: [],
-            arr: []
+            arr: [],
+            accid: ''
         }
     },
     methods:{
@@ -81,14 +95,32 @@ export default {
         },
         toggle(id, e){
             if(this.arr.includes(id)){
+                this.accid = id
                 console.log(this.arr.indexOf(id))
                 const index = this.arr.indexOf(id)
                 this.arr.splice(index, 1)
-                e.target.innerText = 'OFF'
+
+                e.target.innerText = 'ON'
+
+                const formdata = new FormData();
+                formdata.append('PRODUCTID', this.accid);
+                fetch('http://localhost:8080/backfront-php/UpdateAccOn.php', {
+                method: 'POST',
+                body: formdata
+            })
             } else {
+                this.accid = id
                 console.log(this.arr);
                 this.arr.push(id)
-                e.target.innerText = 'ON'
+
+                e.target.innerText = 'OFF'
+
+                const formdata = new FormData();
+                formdata.append('PRODUCTID', this.accid);
+                fetch('http://localhost:8080/backfront-php/UpdateAccOff.php', {
+                method: 'POST',
+                body: formdata
+            })
             }
         }
     }
@@ -97,6 +129,6 @@ export default {
 
 <style scoped>
 .change{
-    background-color: #10B981;
+    background-color: #DC2626;
 }
 </style>
