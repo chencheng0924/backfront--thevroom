@@ -808,6 +808,10 @@ video {
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .items-center {
   align-items: center;
 }
@@ -838,6 +842,12 @@ video {
 
 .overflow-auto {
   overflow: auto;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .rounded-lg {
