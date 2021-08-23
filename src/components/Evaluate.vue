@@ -91,7 +91,7 @@ export default {
                 const fdd = new FormData()
                 fdd.append('eid', this.eid)
                 fdd.append('status',this.status)
-                fetch('http://localhost:8080/backfront-php/UpdateEvaluate.php', {
+                fetch('http://localhost:8080/backfront-php/UpdateEvaNotyet.php', {
                 method: 'POST',
                 body: fdd
             })
@@ -105,7 +105,7 @@ export default {
                 const fdd = new FormData()
                 fdd.append('eid', this.eid)
                 fdd.append('status',this.status)
-                fetch('http://localhost:8080/backfront-php/hotest.php', {
+                fetch('http://localhost:8080/backfront-php/UpdateEvaReply.php', {
                 method: 'POST',
                 body: fdd 
             })
