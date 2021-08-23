@@ -103,18 +103,18 @@ export default {
             console.log(this.artphoto)
         },
         updatebtn(){
-          console.log(this.one);
-          console.log(this.two);
-          console.log(this.three);
-          console.log(this.four);
-          console.log(this.five);
-          console.log(this.six);
-          // console.log(this.testname);
-          const formdata = new FormData();
-          formdata.append('SUBJECTNAME', this.five);
-          formdata.append('CONTENT', this.six);
-          formdata.append('ARTICLEID', this.one);
-          fetch('http://localhost:8080/backfront-php/UpdateDialogArticle.php', {
+            console.log(this.one);
+            console.log(this.two);
+            console.log(this.three);
+            console.log(this.four);
+            console.log(this.five);
+            console.log(this.six);
+            // console.log(this.testname);
+            const formdata = new FormData();
+            formdata.append('SUBJECTNAME', this.five);
+            formdata.append('CONTENT', this.six);
+            formdata.append('ARTICLEID', this.one);
+            fetch('http://localhost:8080/backfront-php/UpdateDialogArticle.php', {
                 method: 'POST',
                 body: formdata
             })

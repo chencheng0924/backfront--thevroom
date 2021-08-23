@@ -558,7 +558,7 @@ embed,
 object {
   display: block;
   /* 1 */
-  vertical-align: middle;
+  /* vertical-align: middle; */
   /* 2 */
 }
 
@@ -756,6 +756,10 @@ video {
   width: 50%;
 }
 
+.w-\[150px\] {
+  width: 150px;
+}
+
 .w-\[95px\] {
   width: 95px;
 }
@@ -884,9 +888,9 @@ video {
   background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
 }
 
-.bg-red-600 {
+.bg-green-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(220, 38, 38, var(--tw-bg-opacity));
+  background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
 
 .bg-green-500 {

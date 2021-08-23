@@ -14,6 +14,19 @@
                     </div>
                 </div>
             </dialoggo>
+
+            <dialoggo :show="editlog">
+                <div class="flex flex-col w-full justify-around">
+                    <div class="w-full mb-5">
+                      <div class="text-2xl text-black text-center">---新增車輛---</div>
+                    </div>
+                    <div class="flex justify-between">
+                      <!-- <uploadimage @photofile="addphoto" class="mr-3" /> -->
+                      <edit-car-data @gogo2='testgogo' :carid="carid"/>
+                    </div>
+                </div>
+            </dialoggo>
+
         </div>
         <div class="flex flex-col items-center">
             <div class="w-11/12 flex flex-col justify-center">
@@ -31,7 +44,7 @@
                         <div class="w-11/12 flex justify-center">{{item[1]}}</div>
                         <div class="w-11/12 flex justify-center">{{item[2]}}</div>
                         <div class="w-11/12 flex justify-center">{{item[14]}}</div>
-                        <div class="w-11/12 flex justify-center"><buttons class="px-2 py-3 rounded-lg bg-black text-white">編輯</buttons></div>
+                        <div class="w-11/12 flex justify-center"><buttons @click="edit(item[0])" style="cursor: pointer" class="px-2 py-3 rounded-lg bg-black text-white">檢視</buttons></div>
                     </div>
                 </div>
             </div>
@@ -43,10 +56,12 @@
 <script>
 // import uploadimage from './uploadimage.vue'
 import DialigCarDate from './dialog/DialogCarDate.vue'
+import EditCarData from './dialog/EditCarData.vue'
 export default {
     components:{
         // uploadimage,
-        DialigCarDate
+        DialigCarDate,
+        EditCarData
     },
     async created () {
         const res = await fetch('http://localhost:8080/backfront-php/SelectCardata.php');
@@ -60,6 +75,7 @@ export default {
     data() {
         return {
             dialogs: false,
+            editlog: false,
             // cars:[
             //     {car:'001',carbrand:'BMW',carname:'220i',price:'1980000'},
             //     {car:'002',carbrand:'BMW',carname:'220i',price:'1980000'},
@@ -67,7 +83,8 @@ export default {
             // ]
             cars: [],
             test: [],
-            new: []
+            new: [],
+            carid: ''
         }
     },
     methods:{
@@ -76,6 +93,14 @@ export default {
         },
         close(){
             this.dialogs = false
+        },
+        edit(e){
+            this.editlog = true
+            this.carid = e
+            console.log(this.carid);
+        },
+        testgogo(){
+            this.editlog = false
         }
     }
 }
